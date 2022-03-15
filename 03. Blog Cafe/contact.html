@@ -2,7 +2,7 @@
 
 <html lang="es-CL">
   <head>
-    <title>Sobre Nosotros</title>
+    <title>Contacto</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta charset="utf-8" />
     <meta 
@@ -40,11 +40,6 @@
       href="https://fonts.googleapis.com/css2?family=Open+Sans&family=PT+Sans:wght@400;700&display=swap"
       rel="stylesheet"
     />
-    <link 
-      rel="preload" 
-      href="img/nosotros.jpg"
-      as="image"
-    />
   </head>
   <body>
     <header class="header">
@@ -68,28 +63,44 @@
       </div>
     </header>
     <main class="container">
-      <h3 class="text-center">Sobre Nosotros</h3>
-      <div class="about-us">
-        <div class="about-us__img">
-          <img 
-            src="img/nosotros.jpg" 
-            alt="about us img"
-            loading="lazy"
+      <h3 class="text-center">Contacto</h3>
+      <div class="contact-bg"></div>
+      <form class="form">
+        <div class="field">
+          <label class="field__label" for="name">Nombre</label>
+          <input 
+            type="text" 
+            id="name" 
+            name="name" 
+            placeholder="Tu Nombre"
+            class="field__input"
           />
         </div>
-        <div class="about-us__text">
-          <p>
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptas beatae eveniet dolores expedita quis 
-            numquam unde officia hic facere accusamus laborum commodi illo porro quam iste blanditiis, sed earum ea?
-            Lorem ipsum dolor sit amet consectetur adipisicing elit.
-          </p>
-          <p>
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptas beatae eveniet dolores expedita quis 
-            numquam unde officia hic facere accusamus laborum commodi illo porro quam iste blanditiis, sed earum ea?
-            Lorem ipsum dolor sit amet consectetur adipisicing elit.
-          </p>
+        <div class="field">
+          <label class="field__label" for="email">E-mail</label>
+          <input 
+            type="email" 
+            id="name" 
+            name="email" 
+            placeholder="Tu E-mail"
+            class="field__input"
+          />
         </div>
-      </div>
+        <div class="field">
+          <label class="field__label" for="message">Mensaje</label>
+          <textarea 
+            id="message"
+            class="field__input field__input--textarea"
+          ></textarea>
+        </div>
+        <div class="field">
+          <input 
+            type="submit" 
+            value="Enviar" 
+            class="btn btn-primary"
+          />
+        </div>
+      </form>
     </main>
     <footer class="footer">
       <div class="container bar">

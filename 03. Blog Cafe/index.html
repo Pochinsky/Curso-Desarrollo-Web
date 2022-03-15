@@ -2,19 +2,49 @@
 
 <html lang="es-CL">
   <head>
+    <title>Blog de Cafe</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta charset="utf-8" />
-    <link rel="preload" href="./css/normalize.css" as="style" />
-    <link rel="preload" href="./css/styles.css" as="style" />
-    <link rel="stylesheet" href="./css/normalize.css" />
-    <link rel="stylesheet" href="./css/styles.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <meta 
+      name="description" 
+      content="Sitio web de blog de cafe del curso de udemy 'Desarrollo Web Completo con HTML5, CSS3, JS AJAX PHP y MySQL'" 
+    />
+    <link 
+      rel="prefetch" 
+      href="courses.html"
+      as="document"
+    />
+    <link 
+      rel="preload" 
+      href="./css/normalize.css" 
+      as="style" 
+    />
+    <link 
+      rel="stylesheet" 
+      href="./css/normalize.css" 
+    />
+    <link 
+      rel="preload" 
+      href="./css/styles.css" 
+      as="style" 
+    />
+    <link 
+      rel="stylesheet" 
+      href="./css/styles.css" 
+    />
+    <link 
+      rel="preconnect" 
+      href="https://fonts.googleapis.com" 
+    />
+    <link 
+      rel="preconnect" 
+      href="https://fonts.gstatic.com" 
+      crossorigin="crossorigin" 
+    />
     <link
       href="https://fonts.googleapis.com/css2?family=Open+Sans&family=PT+Sans:wght@400;700&display=swap"
       rel="stylesheet"
     />
-    <title>Blog de Cafe</title>
   </head>
   <body>
     <header class="header">
@@ -41,11 +71,15 @@
       <section class="blog">
         <h3>Nuestro Blog</h3>
         <article class="publication">
-          <img
-            class="publication__img"
-            src="img/blog1.jpg"
-            alt="imagen blog 1"
-          />
+          <picture>
+            <source srcset="img/blog1.webp" type="image/webp" />
+            <img
+              class="publication__img"
+              src="img/blog1.jpg"
+              alt="imagen blog 1"
+              loading="lazy"
+            />
+          </picture>
           <div class="publication__content">
             <h4 class="no-margin">Tipos de Granos de Cafe</h4>
             <p>
@@ -59,17 +93,21 @@
               dignissim feugiat eros. Sed tempor volutpat dolor.
             </p>
             <!--/lorem-->
-            <a href="publication.html" class="btn btn-primary"
-              >Leer Publicacion</a
-            >
+            <a href="publication.html" class="btn btn-primary">
+              Leer Publicacion
+            </a>
           </div>
         </article>
         <article class="publication">
-          <img
-            class="publication__img"
-            src="img/blog2.jpg"
-            alt="imagen blog 2"
-          />
+          <picture>
+            <source srcset="img/blog2.webp" type="image/webp" />
+            <img
+              class="publication__img"
+              src="img/blog2.jpg"
+              alt="imagen blog 2"
+              loading="lazy"
+            />
+          </picture>
           <div class="publication__content">
             <h4 class="no-margin">Tres Deliciosas Recetas de Cafe</h4>
             <p>
@@ -83,17 +121,21 @@
               dignissim feugiat eros. Sed tempor volutpat dolor.
             </p>
             <!--/lorem-->
-            <a href="publication.html" class="btn btn-primary"
-              >Leer Publicacion</a
-            >
+            <a href="publication.html" class="btn btn-primary">
+              Leer Publicacion
+            </a>
           </div>
         </article>
         <article class="publication">
-          <img
-            class="publication__img"
-            src="img/blog3.jpg"
-            alt="imagen blog 3"
-          />
+          <picture>
+            <source srcset="img/blog3.webp" type="image/webp" />
+            <img
+              class="publication__img"
+              src="img/blog3.jpg"
+              alt="imagen blog 3"
+              loading="lazy"
+            />
+          </picture>
           <div class="publication__content">
             <h4 class="no-margin">Beneficios del Cafe</h4>
             <p>
@@ -107,9 +149,9 @@
               dignissim feugiat eros. Sed tempor volutpat dolor.
             </p>
             <!--/lorem-->
-            <a href="publication.html" class="btn btn-primary"
-              >Leer Publicacion</a
-            >
+            <a href="publication.html" class="btn btn-primary">
+              Leer Publicacion
+            </a>
           </div>
         </article>
       </section>
@@ -124,9 +166,9 @@
             <p class="widget-course__p">
               Cupos: <span class="widget-course__info">20</span>
             </p>
-            <a href="publication.html" class="btn btn-secondary"
-              >Leer Publicacion</a
-            >
+            <a href="publication.html" class="btn btn-secondary">
+              Leer Publicacion
+            </a>
           </li>
           <li class="widget-course">
             <h4 class="no-margin">Cuatro recetas de cafe</h4>
@@ -136,8 +178,9 @@
             <p class="widget-course__p">
               Cupos: <span class="widget-course__info">20</span>
             </p>
-            <a href="publication.html" class="btn btn-secondary"
-              >Leer Publicacion</a
+            <a href="publication.html" class="btn btn-secondary">
+              Leer Publicacion
+            </a
             >
           </li>
         </ul>
@@ -155,5 +198,6 @@
         </div>
       </div>
     </footer>
+    <script src="js/modernizr.js"></script>
   </body>
 </html>

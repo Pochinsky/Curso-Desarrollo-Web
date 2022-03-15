@@ -11,6 +11,17 @@
 }
 
 /**
+* Webp use
+*/
+.webp .header {
+  background-image: url(../img/banner.webp);
+}
+
+.no-webp .header {
+  background-image: url(../img/banner.jpg);
+}
+
+/**
  * Generals
  */
 html {
@@ -58,6 +69,10 @@ a {
   text-decoration: none;
 }
 
+img {
+  max-width: 100%;
+}
+
 /**
  * Globals
  * and
@@ -90,6 +105,9 @@ a {
   text-transform: uppercase;
   font-weight: 700;
   margin-bottom: 2rem;
+  border: none;
+  outline: none;
+  cursor: pointer;
 }
 
 @media (min-width: 768px) {
@@ -159,11 +177,10 @@ a {
  * header
  */
 .header {
-  background-image: url(../img/banner.jpg);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
-  height: 60rem;
+  height: 65.5rem;
 }
 
 .header__text {
@@ -198,12 +215,14 @@ a {
   margin-bottom: 0;
 }
 
-.publication__img {
-  width: 90%;
+@media (min-width: 768px) {
+  .publication__img {
+    width: 90%;
+  }
 }
 
 /**
- * Course
+ * Courses
  */
 .courses {
   list-style: none;
@@ -219,18 +238,42 @@ a {
   margin-bottom: 0;
 }
 
-.widget-course__p {
+.widget-course__p, 
+.course__p {
   font-family: var(--heading-font);
   font-weight: 700;
 }
 
-.widget-course__info {
+.widget-course__info,
+.course__info {
   font-weight: 400;
 }
 
 .widget-course__p,
-.widget-course__info {
+.widget-course__info,
+.course__info,
+.course__p {
   font-size: 2rem;
+}
+
+/**
+* Course
+*/
+.course {
+  padding: 3rem 0;
+  border-bottom: 1px solid var(--gray);
+}
+
+.course:last-of-type {
+  border: none;
+}
+
+@media (min-width: 768px) {
+  .course {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    column-gap: 2rem;
+  }
 }
 
 /**
@@ -252,13 +295,48 @@ a {
   .about-us {
     flex-direction: row;
   }
-.about-us__img,
-.about-us__text {
-  flex-basis: 50%;
-}
+  .about-us__img,
+  .about-us__text {
+    flex-basis: 50%;
+  }
 }
 
+/**
+* Contact
+*/
+.contact-bg {
+  background-image: url(../img/contacto.jpg);
+  height: 40rem;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
 
+.form {
+  background-color: var(--white);
+  margin: -5rem auto 0 auto;
+  width: 95%;
+  padding: 5rem;
+}
+
+.field {
+  display: flex;
+  margin-bottom: 2rem;
+  gap: 2rem;
+}
+
+.field__label {
+  flex: 0 0 9rem;
+  text-align: right;
+}
+
+.field__input {
+  flex: 1;
+  border: 1px solid var(--gray);
+}
+
+.field__input--textarea {
+  height: 20rem;
+}
 
 /**
  * Footer
