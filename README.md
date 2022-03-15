@@ -8,14 +8,6 @@ This repository contains the projects done on the completion of the online cours
 
 ## Proyectos del Curso (Course's Projects)
 
-### 1. Sitio Freelancer (Freelancer Site)
-
-Este proyecto corresponde a un sitio web de freelancer de una sola pagina (sin redireccionamiento). En este proyecto se estudian los aspectos basicos de HTML y CSS.
-
-This project corresponds a web site of freelancer that only have one page (without redirect). In this project we study the basics aspects of HTML and CSS.
-
-### 2. Tienda "Frontend Store" ("Frontend Store" Shop)
-
-Este proyecto corresponde a un sitio web de una tienda de poleras con estilos de frontend. En este proyecto se repasan los aspectos basicos de HTML y CSS y se estudia el redireccionamiento y el rendimiento en HTML.
-
-This project corresponds a web site of a t-shirts's shop with frontend's styles. In this project we review the basics aspects of HTML and CSS and study the redirect and performance in HTML.
+1. Sitio Freelancer (Freelancer Site)
+2. Tienda "Frontend Store" ("Frontend Store" Shop)
+3. Blog de Cafe (Coffee's Blog)
