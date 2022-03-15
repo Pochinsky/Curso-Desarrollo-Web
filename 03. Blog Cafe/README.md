@@ -2,6 +2,8 @@
 
 **To visit the site [click here!](https://siteofblogdecafe.netlify.app/)**
 
+#### Spanish description
+
 Este proyecto corresponde a un sitio web de un blog sobre cafe. En este proyecto se refuerzan los aspectos basicos de HTML y CSS junto con el redireccionamiento de paginas y el rendimiento en precarga y preconexion.
 
 Ademas, se aprende el uso de `prefetch` para la carga de paginas. Tambien se aprende la etiqueta `picture` para utilizar imagenes `.webp` para la mejora de rendimiento del sitio web.
@@ -9,6 +11,8 @@ Ademas, se aprende el uso de `prefetch` para la carga de paginas. Tambien se apr
 Para la carga de imagenes de extension `.webp` desde los estilos CSS se necesita utilizar la libreria Modernizr la cual detecta si el navegador es compatible con imagenes `.webp` o no, eligiendo asi el tipo de imagen a cargar.
 
 Por ultimo, se utilizo la extension de google chrome `lighthouse`, la cual realiza una auditoria al sitio web evaluandolo bajo ciertos criterios.
+
+#### English description
 
 This project corresponds a web site of a blog about coffee. In this proyect we reinforced the basics aspects of HTML and CSS along with the page's redirect and the performance on preload and preconnection.
 
