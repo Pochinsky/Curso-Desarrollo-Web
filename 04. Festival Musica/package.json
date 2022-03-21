@@ -1,0 +1,23 @@
+{
+  "name": "04.-festival-musica",
+  "version": "1.0.0",
+  "description": "Proyecto de Festival de Musica con Gulp, SASS y JS",
+  "main": "index.js",
+  "scripts": {
+    "sass": "sass --watch src/scss:src/css"
+  },
+  "keywords": [
+    "SASS",
+    "Gulp"
+  ],
+  "author": "Tomas Guttman",
+  "license": "MIT",
+  "dependencies": {
+    "sass": "^1.49.9"
+  },
+  "devDependencies": {
+    "gulp": "^4.0.2",
+    "gulp-plumber": "^1.2.1",
+    "gulp-sass": "^5.1.0"
+  }
+}
