@@ -1,0 +1,19 @@
+@use 'base/variables' as v;
+
+.header {
+  background-color: v.$green;
+  h1 {
+    color: v.$white;
+  }
+}
+
+.main-nav {
+  a {
+    color: v.$white;
+    font-size: 2.4rem;
+    &:hover {
+      color: v.$yellow;
+      border-bottom: 1px solid v.$yellow;
+    }
+  }
+}
