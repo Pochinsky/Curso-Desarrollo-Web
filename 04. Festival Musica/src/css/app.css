@@ -388,16 +388,91 @@ a {
 
 .header {
   background-color: #4cb8b3;
+  padding: 2rem 0.5rem;
 }
 .header h1 {
   color: #ffffff;
+  text-align: center;
+}
+@media (min-width: 768px) {
+  .header h1 {
+    margin: 0;
+  }
+}
+@media (min-width: 768px) {
+  .header .header-content {
+    display: flex;
+    justify-content: space-between;
+  }
 }
 
+.main-nav {
+  display: flex;
+  flex-direction: column;
+}
+@media (min-width: 768px) {
+  .main-nav {
+    gap: 2rem;
+    align-items: center;
+    flex-direction: row;
+  }
+}
 .main-nav a {
+  text-align: center;
   color: #ffffff;
-  font-size: 2.4rem;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+@media (min-width: 768px) {
+  .main-nav a {
+    margin-bottom: 0;
+  }
 }
 .main-nav a:hover {
   color: #fef46d;
   border-bottom: 1px solid #fef46d;
+}
+
+.video {
+  position: relative;
+  max-height: 65.3rem;
+  min-height: 50rem;
+  overflow: hidden;
+}
+@media (min-width: 768px) {
+  .video {
+    max-height: 84.9rem;
+  }
+}
+.video .overlay {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background: #700093;
+  background: linear-gradient(90deg, rgba(112, 0, 147, 0.5) 0%, rgba(255, 0, 161, 0.3) 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.video video {
+  width: auto;
+  display: block;
+}
+@media (min-width: 768px) {
+  .video video {
+    width: 100%;
+  }
+}
+
+.video-content h2 {
+  color: #ffffff;
+  font-size: 7rem;
+  margin: 0;
+}
+.video-content p {
+  background-color: #f53756;
+  display: inline-block;
+  padding: 1rem 2rem;
+  color: #ffffff;
+  font-weight: 700;
 }
