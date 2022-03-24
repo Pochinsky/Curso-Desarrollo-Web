@@ -371,9 +371,17 @@ h3 {
   font-size: 3rem;
 }
 
+img {
+  max-width: 100%;
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
 p {
   font-size: 2rem;
   color: #000000;
+  line-height: 1.5;
 }
 
 a {
@@ -435,14 +443,9 @@ a {
 
 .video {
   position: relative;
-  max-height: 65.3rem;
+  max-height: 70rem;
   min-height: 50rem;
   overflow: hidden;
-}
-@media (min-width: 768px) {
-  .video {
-    max-height: 84.9rem;
-  }
 }
 .video .overlay {
   position: absolute;
@@ -458,7 +461,7 @@ a {
   width: auto;
   display: block;
 }
-@media (min-width: 768px) {
+@media (min-width: 992px) {
   .video video {
     width: 100%;
   }
@@ -475,4 +478,108 @@ a {
   padding: 1rem 2rem;
   color: #ffffff;
   font-weight: 700;
+}
+
+.about-festival {
+  padding: 5rem 0;
+}
+@media (min-width: 768px) {
+  .about-festival {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 5rem;
+  }
+}
+
+.festival-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 5rem;
+}
+@media (min-width: 768px) {
+  .festival-content {
+    margin-top: 0;
+  }
+}
+.festival-content h2 {
+  margin-bottom: 2rem;
+}
+.festival-content .date {
+  color: #f53756;
+  font-weight: 700;
+}
+
+.lineup {
+  background-color: #f53756;
+  padding: 5rem 0;
+}
+.lineup h3,
+.lineup p {
+  text-align: center;
+  color: #ffffff;
+}
+.lineup .day {
+  text-transform: uppercase;
+  margin: 5rem 0;
+}
+
+@media (min-width: 768px) {
+  .scene-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 5rem;
+  }
+}
+.scene-container p {
+  color: #000000;
+}
+
+.scene {
+  padding-top: 2rem;
+}
+.scene .scene-name:after {
+  content: "";
+  display: block;
+  width: 20rem;
+  height: 10rem;
+  background-size: 15rem;
+  background-repeat: no-repeat;
+  background-position: center center;
+  margin: 2rem auto 0 auto;
+}
+
+.edm .scene-name:after {
+  background-image: url(../img/icono_edm.png);
+}
+
+.rock .scene-name:after {
+  background-image: url(../img/icono_rock.png);
+}
+
+.calendar {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.calendar li {
+  padding: 2.5rem;
+  font-weight: 700;
+}
+.calendar li span {
+  font-weight: 400;
+}
+
+.bg-yellow {
+  background-color: #fef46d;
+}
+.bg-yellow li:nth-child(odd) {
+  background-color: #fdec08;
+}
+
+.bg-green {
+  background-color: #4cb8b3;
+}
+.bg-green li:nth-child(odd) {
+  background-color: #3b9691;
 }

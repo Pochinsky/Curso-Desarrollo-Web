@@ -3,12 +3,9 @@
 
 .video {
   position: relative;
-  max-height: 65.3rem;
+  max-height: 70rem;
   min-height: 50rem;
   overflow: hidden;
-  @include m.tablet {
-    max-height: 84.9rem;
-  }
   .overlay {
     position: absolute;
     height: 100%;
@@ -22,7 +19,7 @@
   video {
     width: auto;
     display: block;
-    @include m.tablet {
+    @include m.desktop {
       width: 100%;
     }
   }
