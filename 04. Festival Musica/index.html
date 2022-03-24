@@ -15,9 +15,9 @@
       <link rel="preload" href="build/css/app.css" as="style" />
       <link rel="stylesheet" href="build/css/app.css" />
       <!-- video -->
-      <link rel="preload" href="video/concierto.mp4" as="video/mp4" />
-      <link rel="preload" href="video/concierto.ogg" as="video/ogg" />
-      <link rel="preload" href="video/concierto.webm" as="video/webm" />
+      <link rel="preload" href="video/concierto.mp4" as="video" />
+      <link rel="preload" href="video/concierto.ogg" as="video" />
+      <link rel="preload" href="video/concierto.webm" as="video" />
   </head>
   <body>
     <!-- header -->
@@ -86,26 +86,7 @@
         <div class="scene rock bg-yellow">
           <p class="scene-name">Escenario Rock</p>
           <!-- calendar -->
-          <ul class="calendar">
-            <li>
-              24:00 | <span>Metallica</span>
-            </li>
-            <li>
-              22:00 | <span>Pearl Jam</span>
-            </li>
-            <li>
-              20:00 | <span>KoRn</span>
-            </li>
-            <li>
-              19:00 | <span>Muse</span>
-            </li>
-            <li>
-              18:00 | <span>Breaking Benjamin</span>
-            </li>
-            <li>
-              17:00 | <span>30 Seconds to Mars</span>
-            </li>
-          </ul>
+          <ul id="rock1" class="calendar"></ul>
           <!-- /calendar -->
         </div>
         <!-- /scene -->
@@ -113,26 +94,7 @@
         <div class="scene edm bg-green">
           <p class="scene-name">Escenario EDM</p>
           <!-- calendar -->
-          <ul class="calendar">
-            <li>
-              24:00 | <span>Deadmau5</span>
-            </li>
-            <li>
-              22:00 | <span>Tïesto</span>
-            </li>
-            <li>
-              20:00 | <span>Hardwell</span>
-            </li>
-            <li>
-              19:00 | <span>Dash Berlin</span>
-            </li>
-            <li>
-              18:00 | <span>Fedde Legrand</span>
-            </li>
-            <li>
-              17:00 | <span>Audien</span>
-            </li>
-          </ul>
+          <ul id="edm1" class="calendar"></ul>
           <!-- /calendar -->
         </div>
         <!-- /scene -->
@@ -145,26 +107,7 @@
         <div class="scene rock bg-green">
           <p class="scene-name">Escenario Rock</p>
           <!-- calendar -->
-          <ul class="calendar">
-            <li>
-              24:00 | <span>Red Hot Chili Peppers</span>
-            </li>
-            <li>
-              22:00 | <span>The Killers</span>
-            </li>
-            <li>
-              20:00 | <span>Deftones</span>
-            </li>
-            <li>
-              19:00 | <span>Limp Bizkit</span>
-            </li>
-            <li>
-              18:00 | <span>Papa Roach</span>
-            </li>
-            <li>
-              17:00 | <span>Lamb of God</span>
-            </li>
-          </ul>
+          <ul id="rock2" class="calendar"></ul>
           <!-- /calendar -->
         </div>
         <!-- /scene -->
@@ -172,26 +115,7 @@
         <div class="scene edm bg-yellow">
           <p class="scene-name">Escenario EDM</p>
           <!-- calendar -->
-          <ul class="calendar">
-            <li>
-              24:00 | <span>Paul Van Dyk</span>
-            </li>
-            <li>
-              22:00 | <span>Armin Van Buuren</span>
-            </li>
-            <li>
-              20:00 | <span>Above & Beyond</span>
-            </li>
-            <li>
-              19:00 | <span>Eric Prdyz</span>
-            </li>
-            <li>
-              18:00 | <span>Ferry Corsten</span>
-            </li>
-            <li>
-              17:00 | <span>Vini Vici</span>
-            </li>
-          </ul>
+          <ul id="edm2" class="calendar"></ul>
           <!-- /calendar -->
         </div>
         <!-- /scene -->
@@ -199,5 +123,11 @@
       <!-- /scene container -->
     </section>
     <!-- /line up -->
+    <section class="container gallery">
+      <h3>Galeria</h3>
+      <ul class="images-gallery"></ul>
+    </section>
+    <!-- scripts -->
+    <script src="build/js/app.js"></script>
   </body>
 </html>

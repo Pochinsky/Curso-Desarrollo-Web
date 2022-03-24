@@ -120,17 +120,33 @@ const avifConversion = done => {
 /*
  *  Summary
  *
+ *    Move js file to build
+ *
+ *  Description
+ *
+ *    Move any js files from src/js/ or intern folders
+ *    to build/js/ location
+ */
+const javascript = done => {
+  src('src/js/**/*.js')
+    .pipe(dest('build/js'));
+  done();
+};
+
+/*
+ *  Summary
+ *
  *    Watch changes in sass compile
  *
  *  Description
  *
  *    Watch changes to compile sass in css every time that the
- *    .scss files changes
- *
- *  @param  {function}  done  a function that finalize the task
+ *    .scss files changes and watch changes to move js files 
+ *    to build/js/ folder
  */
 const watchChanges = done => {
   watch('src/scss/**/*.scss', css);
+  watch('src/js/**/*.js',javascript)
   done();
 };
 
@@ -138,8 +154,9 @@ const watchChanges = done => {
  *  Exports
  */
 exports.css = css;
+exports.js = javascript;
 exports.webpConversion = webpConversion;
 exports.avifConversion = webpConversion;
 exports.watchChanges = watchChanges;
 exports.images = images;
-exports.dev = parallel(images, webpConversion, avifConversion, watchChanges,);
+exports.dev = parallel(images, webpConversion, avifConversion, watchChanges);
