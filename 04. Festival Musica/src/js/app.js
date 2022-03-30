@@ -64,6 +64,44 @@ const createLists = () => {
   }
 };
 
+const showImage = id => {
+  const img = document.createElement('picture');
+  img.innerHTML = `
+    <source srcset="build/img/grande/${id}.avif" type="image/avif" />
+    <source srcset="build/img/grande/${id}.webp" type="image/webp" />
+    <img 
+      width="200" 
+      height="300" 
+      src="build/img/thumb/${id}.jpg" 
+      alt="Imagen Galeria ${id}" 
+      loading="lazy" 
+    />
+  `;
+  // create overlay with the image
+  const overlay = document.createElement('DIV');
+  overlay.appendChild(img);
+  overlay.classList.add('overlay');
+  overlay.onclick = () => {
+    const body = document.querySelector('body');
+    body.classList.remove('fixed-body');
+    overlay.remove();
+  };
+  // button to modal quit
+  const closeModal = document.createElement('P');
+  closeModal.textContent = 'X';
+  closeModal.classList.add('btn-close');
+  closeModal.onclick = () => {
+    overlay.remove();
+    const body = document.querySelector('body');
+    body.classList.remove('fixed-body');
+  };
+  overlay.appendChild(closeModal);
+  // add to HTML
+  const body = document.querySelector('body');
+  body.appendChild(overlay);
+  body.classList.add('fixed-body');
+};
+
 const createGallery = () => {
   const gallery = document.querySelector('.images-gallery');
   for (let i = 1; i <= 12; i++) {
@@ -79,13 +117,45 @@ const createGallery = () => {
         loading="lazy" 
       />
     `;
+    img.onclick = () => showImage(i);
     gallery.appendChild(img);
   }
+};
+
+const scrollNav = () => {
+  const links = document.querySelectorAll('.main-nav a');
+  links.forEach( link => {
+    link.addEventListener('click', e => {
+      e.preventDefault();
+      const sectionScroll = e.target.attributes.href.value;
+      const section = document.querySelector(sectionScroll);
+      section.scrollIntoView({
+        behavior: 'smooth',
+      });
+    });
+  });
+};
+
+const fixNav = () => {
+  const bar = document.querySelector('.header');
+  const aboutFestival = document.querySelector('.about-festival');
+  const body = document.querySelector('body');
+  window.addEventListener('scroll', () => {
+    if (aboutFestival.getBoundingClientRect().top < 0) {
+      bar.classList.add('fixed');
+      body.classList.add('body-sroll');
+    } else {
+      bar.classList.remove('fixed');
+      body.classList.remove('body-scroll');
+    }
+  });
 };
 
 const initApp = () => {
   createLists();
   createGallery();
+  scrollNav();
+  fixNav();
 };
 
 document.addEventListener('DOMContentLoaded', () => initApp());

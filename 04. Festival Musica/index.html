@@ -26,9 +26,9 @@
         <h1>Rock & EDM Festival</h1>
         <!-- nav -->
         <nav class="main-nav">
-          <a href="#">Line Up</a>
-          <a href="#">Galeria</a>
-          <a href="#">Boletos</a>
+          <a href="#lineup">Line Up</a>
+          <a href="#gallery">Galeria</a>
+          <a href="#tickets">Boletos</a>
         </nav>
         <!-- /nav -->
       </div>
@@ -77,7 +77,7 @@
     </section>
     <!-- /about festival -->
     <!-- line up -->
-    <section class="lineup">
+    <section id="lineup" class="lineup">
       <h3>Line Up</h3>
       <p class="day">Viernes 22</p>
       <!-- scene container -->
@@ -123,10 +123,59 @@
       <!-- /scene container -->
     </section>
     <!-- /line up -->
-    <section class="container gallery">
+    <!-- gallery -->
+    <section id="gallery" class="container gallery">
       <h3>Galeria</h3>
       <ul class="images-gallery"></ul>
     </section>
+    <!-- /gallery -->
+    <!-- tickets -->
+    <section id="tickets" class="tickets bg-green">
+      <h3>Boletos</h3>
+      <div class="container container-tickets">
+        <div class="basic pass">
+          <p class="pass-name">Pase 1 Dias</p>
+          <header class="pass-header">
+            <p>Incluye</p>
+          </header>
+          <div class="pass-body">
+            <ul>
+              <li>Acceso a ambos escenarios</li>
+              <li>Comida y Bebida</li>
+            </ul>
+          </div>
+          <footer class="pass-footer">
+            <p>$100</p>
+          </footer>
+        </div>
+        <div class="premium pass">
+          <p class="pass-name">Pase 2 Dias</p>
+          <header class="pass-header">
+            <p>Incluye</p>
+          </header>
+          <div class="pass-body">
+            <ul>
+              <li>Acceso a ambos escenarios</li>
+              <li>Comida y Bebida</li>
+              <li>Camisa del Evento</li>
+              <li>Acceso V.I.P</li>
+            </ul>
+          </div>
+          <footer class="pass-footer">
+            <p>$180</p>
+          </footer>
+        </div>
+      </div>
+    </section>
+    <!-- /tickets -->
+    <!-- footer -->
+    <footer class="site-footer">
+      <p>Rock & EDM Festival.</p>
+      <p>Creado por Tomas Guttman.</p>
+      <p>Basado en curso de Udemy: <i>Desarrollo Web Completo con HTML5, CSS3, JS AJAX PHP y MySQL.</i></p>
+      <p>&copy; Todos los derechos reservados. Juan De la Torre Freelance.</p>
+    </footer>
+    <!-- /footer -->
     <!-- scripts -->
     <script src="build/js/app.js"></script>
   </body>
