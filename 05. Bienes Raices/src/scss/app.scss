@@ -5,7 +5,7 @@
 @import "base/globals";
 @import "base/utilities";
 @import "base/buttons";
-/** home UI **/
+/** home page UI **/
 @import "layout/header";
 @import "layout/navigation";
 @import "layout/footer";
@@ -14,3 +14,5 @@
 @import "layout/contactus";
 @import "layout/lower";
 @import "layout/testimonials";
+/** internals pages UI **/
+@import "internals/aboutus";
