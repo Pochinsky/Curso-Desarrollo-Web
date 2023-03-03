@@ -31,7 +31,9 @@
   text-decoration: none;
   padding: 1rem 3rem;
   text-align: center;
+  border: none;
   &:hover {
     background-color: darken($bgcolor, 5);
+    cursor: pointer;
   }
 }
