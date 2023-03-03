@@ -1,0 +1,17 @@
+.button-yellow-inline {
+  @include button($yellow, inline);
+}
+
+.button-yellow-block {
+  @include button($yellow, block);
+}
+
+.button-green {
+  @include button($green, block);
+}
+
+@include tablet {
+  .button-green {
+    @include button($green, inline);
+  }
+}

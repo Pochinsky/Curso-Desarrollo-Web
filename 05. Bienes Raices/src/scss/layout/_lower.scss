@@ -1,0 +1,46 @@
+@include tablet {
+  .section-lower {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    column-gap: 2rem;
+  }
+}
+
+.post-blog {
+  margin-bottom: 2rem;
+  @include tablet {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    column-gap: 2rem;
+  }
+  &:last-of-type {
+    margin-bottom: 0;
+  }
+}
+
+.text-post {
+  a {
+    color: $black;
+    margin-top: 5rem;
+    display: block;
+    @include tablet {
+      margin-top: 0;
+    }
+  }
+  h3 {
+    margin: 0;
+    line-height: 1.4;
+    text-align: left;
+    &::after {
+      content: "";
+      display: block;
+      width: 15rem;
+      height: 0.5rem;
+      background-color: $green;
+      margin-top: 1rem;
+    }
+  }
+  span {
+    color: $yellow;
+  }
+}

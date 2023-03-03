@@ -1,0 +1,12 @@
+.footer {
+  background-color: $dark_gray;
+  padding: calc($separation/2) 0;
+  margin-bottom: 0;
+  .container-footer {
+    padding-top: calc($separation/2);
+  }
+  .copyright {
+    color: $white;
+    text-align: center;
+  }
+}

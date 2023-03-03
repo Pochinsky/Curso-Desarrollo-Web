@@ -1,0 +1,34 @@
+.bar {
+  display: grid;
+  grid-template-rows: 1fr;
+  padding-top: 3rem;
+  @include tablet {
+    grid-template-columns: 1fr 2fr;
+  }
+}
+
+.navigation {
+  @include tablet {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
+
+  a {
+    color: $white;
+    text-decoration: none;
+    font-size: 2.2rem;
+    display: block;
+    text-align: center;
+    @include tablet {
+      margin-right: 2rem;
+      font-size: 1.8rem;
+      &:last-of-type {
+        margin-right: 0;
+      }
+    }
+    &:hover {
+      color: $green;
+    }
+  }
+}

@@ -1,0 +1,42 @@
+@include tablet {
+  .container-advertisements {
+    @include grid(3, 2rem);
+  }
+}
+
+.advertisement {
+  background-color: lighten($gray, 5);
+  border: 1px solid darken($gray, 10);
+  .content-advertisement {
+    padding: 2rem;
+  }
+  h3,
+  p {
+    margin: 0;
+    text-align: center;
+  }
+  .price {
+    color: $green;
+    font-weight: $bold;
+    font-size: 3rem;
+  }
+}
+
+.icons-properties {
+  display: flex;
+  justify-content: space-between;
+  list-style: none;
+  padding: 0 2rem;
+  li {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  img {
+    flex: 0 0 3rem;
+  }
+  p {
+    font-weight: $bold;
+  }
+}

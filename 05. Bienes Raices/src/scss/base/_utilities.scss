@@ -1,0 +1,14 @@
+.section {
+  margin-top: calc($separation / 2);
+  margin-bottom: calc($separation / 2);
+}
+.content-center {
+  max-width: 800px;
+}
+
+@include tablet {
+  .right-align {
+    display: flex;
+    justify-content: flex-end;
+  }
+}
