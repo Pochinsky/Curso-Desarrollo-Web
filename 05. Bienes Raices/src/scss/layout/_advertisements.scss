@@ -7,6 +7,7 @@
 .advertisement {
   background-color: lighten($gray, 5);
   border: 1px solid darken($gray, 10);
+  margin-bottom: 3rem;
   .content-advertisement {
     padding: 2rem;
   }
