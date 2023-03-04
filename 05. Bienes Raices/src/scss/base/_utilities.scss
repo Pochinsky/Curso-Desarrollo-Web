@@ -6,14 +6,22 @@
   max-width: 80rem;
 }
 
+.center {
+  display: flex;
+  justify-content: center;
+}
+
+.full-block {
+  display: block;
+  width: 100%;
+  @include tablet {
+    width: auto;
+  }
+}
+
 @include tablet {
   .right-align {
     display: flex;
     justify-content: flex-end;
   }
-}
-
-.center {
-  display: flex;
-  justify-content: center;
 }

@@ -55,8 +55,8 @@ includeTemplate('header');
       <label for="time">Hora</label>
       <input type="time" name="time" id="time" min="09:00" max="18:00" />
     </fieldset>
-    <div class="center">
-      <input type="submit" value="Enviar" class="button-green" />
+    <div class="right-align">
+      <input type="submit" value="Enviar" class="full-block button-green" />
     </div>
   </form>
 </main>
