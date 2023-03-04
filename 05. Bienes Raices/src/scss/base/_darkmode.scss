@@ -1,9 +1,9 @@
 .darkmode {
   background-color: darken($dark_gray, 10);
-  p {
+  p,
+  a {
     color: $white;
   }
-  a,
   h1,
   h2,
   h3 {
@@ -17,10 +17,15 @@
     color: $green;
   }
   .icon-property {
-    filter: invert(100%);
+    filter: invert(8100%);
   }
   .text-aboutus {
     blockquote {
+      color: $white;
+    }
+  }
+  .testimonials {
+    h2 {
       color: $white;
     }
   }

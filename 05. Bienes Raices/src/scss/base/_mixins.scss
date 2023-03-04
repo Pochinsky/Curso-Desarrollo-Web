@@ -26,11 +26,12 @@
   background-color: $bgcolor;
   color: $white;
   font-weight: $bold;
-  margin-top: calc($separation/2);
+  margin: calc($separation/2) 0;
   display: $display;
   text-decoration: none;
   padding: 1rem 3rem;
   text-align: center;
+  text-transform: uppercase;
   border: none;
   &:hover {
     background-color: darken($bgcolor, 5);
