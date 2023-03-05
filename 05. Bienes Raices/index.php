@@ -136,7 +136,7 @@ includeTemplate('header', true);
       </div>
     </div>
   </div>
-  <div class="right-align">
+  <div class="center">
     <a href="advertisements.php" class="button-green">Ver todas</a>
   </div>
 </section>
