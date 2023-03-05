@@ -7,8 +7,10 @@
 }
 
 .center {
-  display: flex;
-  justify-content: center;
+  @include tablet {
+    display: flex;
+    justify-content: center;
+  }
 }
 
 .full-block {
