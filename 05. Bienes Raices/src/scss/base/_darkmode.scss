@@ -43,4 +43,17 @@
       border: 2px solid lighten($dark_gray, 10);
     }
   }
+  .message {
+    &.error {
+      color: $ligth_red;
+    }
+  }
+  .button-back {
+    color: $ligth_blue;
+    border: 2px solid $ligth_blue;
+    &:hover {
+      color: darken($ligth_blue, 10);
+      border: 2px solid darken($ligth_blue, 10);
+    }
+  }
 }
