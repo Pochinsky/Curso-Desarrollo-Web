@@ -16,6 +16,7 @@ $errors = [
   'parkings' => '',
   'seller' => ''
 ];
+// default values
 $title = '';
 $price = '';
 $image = $_FILES['image'];
@@ -147,4 +148,7 @@ includeTemplate('header');
     </div>
   </form>
 </main>
-<?php includeTemplate('footer'); ?>
+<?php
+mysqli_close($db);
+includeTemplate('footer');
+?>
