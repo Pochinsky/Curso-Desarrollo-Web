@@ -10,6 +10,10 @@
   @include button($green, block);
 }
 
+.button-red {
+  @include button($red, block);
+}
+
 @include tablet {
   .button-green {
     @include button($green, inline);

@@ -43,6 +43,7 @@
       border: 2px solid lighten($dark_gray, 10);
     }
   }
+  // to admin pages
   .message {
     &.error {
       color: $ligth_red;
@@ -54,6 +55,15 @@
     &:hover {
       color: darken($ligth_blue, 10);
       border: 2px solid darken($ligth_blue, 10);
+    }
+  }
+  table.properties {
+    border: 2px solid lighten($dark_gray, 10);
+    td {
+      color: $white;
+    }
+    tr:nth-child(even) {
+      background-color: $dark_gray;
     }
   }
 }

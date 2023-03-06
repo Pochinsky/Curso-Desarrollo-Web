@@ -49,3 +49,32 @@
     cursor: pointer;
   }
 }
+
+.container-table {
+  overflow-x: auto;
+}
+
+table.properties {
+  margin-top: 4rem;
+  width: 100%;
+  border-spacing: 0;
+  border: 1px solid $gray;
+  thead {
+    background-color: $green;
+    th {
+      color: $white;
+      padding: 2rem;
+    }
+  }
+  td {
+    padding: 0 1rem;
+    text-align: center;
+  }
+  tr:nth-child(even) {
+    background-color: $ligth_gray;
+  }
+  .image-table {
+    width: 10rem;
+    margin: 0 auto;
+  }
+}
