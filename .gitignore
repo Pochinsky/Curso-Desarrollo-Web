@@ -5,3 +5,5 @@
 **/package-lock.json
 **/info.php
 **/images
+**/*.mwb
+**/*.bak
