@@ -3,25 +3,34 @@ document.addEventListener("DOMContentLoaded", () => {
   darkMode();
 });
 
-/**
- * all event listeners
- */
+// all event listeners
 const eventListeners = () => {
   const mobileMenu = document.querySelector(".mobile-menu");
   mobileMenu.addEventListener("click", responsiveNavigation);
+  const deleteDiv = document.querySelector(".open-delete") ?? null;
+  if (deleteDiv)
+    deleteDiv.addEventListener("click", () =>
+      changeDisplay(".delete-confirmation", "block")
+    );
+  const keepButton = document.querySelector(".close-delete") ?? null;
+  if (keepButton)
+    keepButton.addEventListener("click", () =>
+      changeDisplay(".delete-confirmation", "none")
+    );
+};
+// change display of selector
+const changeDisplay = (nameSelector, display) => {
+  const element = document.querySelector(nameSelector);
+  element.style.display = display;
 };
 
-/**
- * show or hidde mobile menu
- */
+// show or hidde mobile menu
 const responsiveNavigation = () => {
   const navigation = document.querySelector(".navigation");
   navigation.classList.toggle("show");
 };
 
-/**
- * enable or disable dark mode
- */
+// enable or disable dark mode
 const darkMode = () => {
   const preferenceDarkMode = window.matchMedia("(prefers-color-scheme: dark");
   // review device config

@@ -78,3 +78,21 @@ table.properties {
     margin: 0 auto;
   }
 }
+
+.delete-confirmation {
+  display: none;
+  flex-direction: column;
+  border: 2px solid $gray;
+  margin: 1rem 0 0 0;
+  padding: 0 1rem;
+  div {
+    display: flex;
+    flex-direction: column;
+    @include tablet {
+      @include grid(2, 1rem);
+    }
+  }
+  .close-delete {
+    font-size: 1.3rem;
+  }
+}

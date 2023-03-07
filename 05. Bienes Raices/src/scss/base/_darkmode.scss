@@ -66,4 +66,7 @@
       background-color: $dark_gray;
     }
   }
+  .delete-confirmation {
+    border: 2px solid lighten($dark_gray, 10);
+  }
 }
