@@ -1,3 +1,7 @@
 <?php
-define('TEMPLATE_URL',__DIR__.'/templates');
-define('HELPERS_URL',__DIR__.'/helpers.php');
+// requires
+require 'helpers.php';
+require 'config/database.php';
+require __DIR__ . '/../vendor/autoload.php';
+
+use App\Property;

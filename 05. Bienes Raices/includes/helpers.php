@@ -1,5 +1,8 @@
 <?php
-require 'app.php';
+// constants
+define('TEMPLATE_URL', __DIR__ . '/templates');
+define('HELPERS_URL', __DIR__ . '/helpers.php');
+// functions
 
 function includeTemplate(string $name, bool $home = false)
 {
