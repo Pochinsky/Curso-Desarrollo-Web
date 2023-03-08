@@ -1,5 +1,5 @@
 <?php
-require __DIR__ . '/includes/helpers.php';
+require __DIR__ . '/includes/app.php';
 includeTemplate('header', true);
 ?>
 <!-- main -->

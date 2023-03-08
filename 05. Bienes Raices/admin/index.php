@@ -1,14 +1,12 @@
 <?php
+// templates
+require '../includes/app.php';
 // consult properties store in DB
-require '../includes/config/database.php';
 $db = connectDatabase();
 $query = 'SELECT id, title, price, image FROM property';
 $resultSQL = mysqli_query($db, $query);
 // conditional message handler
 $result = $_GET['result'] ?? null;
-// templates
-require '../includes/helpers.php';
-includeTemplate('header');
 // to delete
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   $id = $_POST['id'];
@@ -27,6 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
   }
 }
+includeTemplate('header');
 ?>
 <!-- main -->
 <main class="container section">

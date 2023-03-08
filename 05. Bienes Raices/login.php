@@ -1,5 +1,5 @@
 <?php
-require 'includes/config/database.php';
+require __DIR__ . '/includes/app.php';
 $db = connectDatabase();
 $errors = [
   'email' => '',
@@ -36,8 +36,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
   }
 }
-// includes
-require __DIR__ . '/includes/helpers.php';
 includeTemplate('header');
 ?>
 <!-- main -->

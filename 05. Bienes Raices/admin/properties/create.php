@@ -1,6 +1,6 @@
 <?php
-// database
-require '../../includes/config/database.php';
+// templates
+require '../../includes/app.php';
 $db = connectDatabase();
 // get sellers
 $query1 = 'SELECT * FROM seller';
@@ -71,8 +71,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       header("Location: /admin?result=1");
   }
 }
-// templates
-require '../../includes/helpers.php';
 includeTemplate('header');
 ?>
 <!-- main -->

@@ -1,10 +1,11 @@
 <?php
+// templates
+require '../../includes/app.php';
 // get property id
 $id = $_GET['id'];
 $id = filter_var($id, FILTER_VALIDATE_INT);
 if (!$id) header('Location: /admin');
 // database
-require '../../includes/config/database.php';
 $db = connectDatabase();
 // get property data
 $query = "SELECT * FROM property WHERE id=$id";
@@ -85,8 +86,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       header("Location: /admin?result=2");
   }
 }
-// templates
-require '../../includes/helpers.php';
 includeTemplate('header');
 ?>
 <!-- main -->

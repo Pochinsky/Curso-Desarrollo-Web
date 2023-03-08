@@ -1,5 +1,4 @@
 <?php
-include 'includes/config/database.php';
 $db = connectDatabase();
 // give property id
 $id = $_GET['id'];

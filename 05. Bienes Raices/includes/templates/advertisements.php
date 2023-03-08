@@ -1,5 +1,4 @@
 <?php
-require 'includes/config/database.php';
 $db = connectDatabase();
 $query = "SELECT id, title, description, price, image, room, bathroom, parking FROM property";
 if (isset($limit)) $query = $query . " LIMIT $limit";
