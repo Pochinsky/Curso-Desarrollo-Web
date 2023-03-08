@@ -1,0 +1,17 @@
+{
+  "name": "pochinsky/bienesraices",
+  "description": "Creando una aplicacion de bienes raices con POO en PHP",
+  "type": "project",
+  "authors": [
+    {
+      "name": "Tomas Guttman",
+      "email": "tomas.guttman@sansano.usm.cl"
+    }
+  ],
+  "require": {},
+  "autoload": {
+    "psr-4": {
+      "App\\": "./classes"
+    }
+  }
+}
