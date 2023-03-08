@@ -1,6 +1,9 @@
 <?php
 // templates
 require '../../includes/app.php';
+// check that session exists
+$auth = isAuthenticated();
+if (!$auth) header('Location: /');
 $db = connectDatabase();
 // get sellers
 $query1 = 'SELECT * FROM seller';

@@ -1,6 +1,9 @@
 <?php
 // templates
 require '../../includes/app.php';
+// check that session exists
+$auth = isAuthenticated();
+if (!$auth) header('Location: /');
 // get property id
 $id = $_GET['id'];
 $id = filter_var($id, FILTER_VALIDATE_INT);

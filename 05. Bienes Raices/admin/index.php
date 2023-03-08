@@ -1,6 +1,9 @@
 <?php
 // templates
 require '../includes/app.php';
+// check that session exists
+$auth = isAuthenticated();
+if (!$auth) header('Location: /');
 // consult properties store in DB
 $db = connectDatabase();
 $query = 'SELECT id, title, price, image FROM property';
