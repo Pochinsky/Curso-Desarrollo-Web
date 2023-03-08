@@ -1,3 +1,7 @@
+<?php
+if (!isset($_SESSION)) session_start();
+$auth = $_SESSION['login'] ?? false;
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -23,7 +27,15 @@
         </div>
         <div class="right">
           <img src="/build/img/dark-mode.svg" alt="Icono dark mode" class="button-darkmode" />
-          <?php includeTemplate('nav'); ?>
+          <nav class="navigation">
+            <a href="aboutus.php">Nosotros</a>
+            <a href="advertisements.php">Anuncios</a>
+            <a href="blog.php">Blog</a>
+            <a href="contact.php">Contacto</a>
+            <?php if ($auth) : ?>
+              <a href="close-session.php">Cerrar Sesión</a>
+            <?php endif; ?>
+          </nav>
         </div>
       </div>
       <?php if ($home) { ?>

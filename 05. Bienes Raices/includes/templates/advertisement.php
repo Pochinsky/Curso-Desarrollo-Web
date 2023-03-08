@@ -8,7 +8,7 @@ if (!$id) header('Location: /');
 // give property data
 $query = "SELECT title, description, price, image, room, bathroom, parking FROM property WHERE id = $id";
 $result = mysqli_query($db, $query);
-if ($result->num_rows) header('Location: /');
+if (!$result->num_rows) header('Location: /');
 $property = mysqli_fetch_assoc($result);
 ?>
 <h1><?php echo $property['title']; ?></h1>
