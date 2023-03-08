@@ -8,4 +8,4 @@
 **/*.mwb
 **/*.bak
 **/vendor
-**/.lock
+**/*.lock
