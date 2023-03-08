@@ -90,7 +90,7 @@ require '../../includes/helpers.php';
 includeTemplate('header');
 ?>
 <!-- main -->
-<main class="container section">
+<main class="container section content-center">
   <h1>Actualizar Propiedad</h1>
   <?php
   if ($existErrors) :

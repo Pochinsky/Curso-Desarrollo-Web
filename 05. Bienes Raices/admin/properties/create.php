@@ -76,7 +76,7 @@ require '../../includes/helpers.php';
 includeTemplate('header');
 ?>
 <!-- main -->
-<main class="container section">
+<main class="container section content-center">
   <h1>Agregar Nueva Propiedad</h1>
   <?php
   if ($existErrors) :

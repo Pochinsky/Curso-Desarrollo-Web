@@ -3,7 +3,7 @@ require __DIR__ . '/includes/helpers.php';
 includeTemplate('header');
 ?>
 <!-- main -->
-<main class="container section">
+<main class="container section content-center">
   <h1>Contacto</h1>
   <picture>
     <source srcset="/build/img/destacada3.webp" type="image/webp" />
