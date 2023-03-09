@@ -22,16 +22,16 @@ class Property
   protected static $existErrors = false;
 
   // attributes
-  protected $id;
-  protected $title;
-  protected $price;
-  protected $image;
-  protected $description;
-  protected $room;
-  protected $bathroom;
-  protected $parking;
-  protected $created;
-  protected $sellerId;
+  public $id;
+  public $title;
+  public $price;
+  public $image;
+  public $description;
+  public $room;
+  public $bathroom;
+  public $parking;
+  public $created;
+  public $sellerId;
 
   // constructor
   public function __construct($args = [])
@@ -91,6 +91,35 @@ class Property
     foreach ($attrs as $key => $value)
       $sanitize[$key] = self::$db->escape_string($value);
     return $sanitize;
+  }
+
+  protected static function createObject($register)
+  {
+    $object = new self;
+    foreach ($register as $key => $value)
+      if (property_exists($object, $key))
+        $object->$key = $value;
+    return $object;
+  }
+
+  protected static function querySQL($query)
+  {
+    // get all registers as objects
+    $result = self::$db->query($query);
+    $array = [];
+    while ($register = $result->fetch_assoc()) {
+      $array[] = self::createObject($register);
+    }
+    // free memory
+    $result->free();
+    return $array;
+  }
+
+  public static function all()
+  {
+    $query = "SELECT id, title, price, image FROM property";
+    $result = self::querySQL($query);
+    return $result;
   }
 
   public function save()

@@ -2,14 +2,17 @@
 
 require '../includes/app.php';
 
+use App\Property;
+
 // check that session exists
 isAuthenticated();
-// consult properties store in DB
-$db = connectDatabase();
-$query = 'SELECT id, title, price, image FROM property';
-$resultSQL = mysqli_query($db, $query);
+
+// get all properties
+$properties = Property::all();
+
 // conditional message handler
 $result = $_GET['result'] ?? null;
+
 // to delete
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   $id = $_POST['id'];
@@ -56,34 +59,33 @@ includeTemplate('header');
       </thead>
       <!-- tbody -->
       <tbody>
-        <?php while ($row = mysqli_fetch_assoc($resultSQL)) : ?>
+        <?php foreach ($properties as $property) : ?>
           <tr>
             <td>
-              <img class="image-table" src="/images/<?php echo $row['image']; ?>" alt="Casa imagen">
+              <img class="image-table" src="/images/<?php echo $property->image; ?>" alt="Casa imagen">
             </td>
-            <td><?php echo $row['title']; ?></td>
-            <td><?php echo numberToCurrency($row['price']); ?></td>
+            <td><?php echo $property->title; ?></td>
+            <td><?php echo numberToCurrency($property->price); ?></td>
             <td>
-              <div id="delete-confirmation-<?php echo $row['id']; ?>" class="delete-confirmation">
+              <div id="delete-confirmation-<?php echo $property->id; ?>" class="delete-confirmation">
                 <p>¿Seguro/a de eliminar la propiedad?</p>
                 <div>
-                  <button id="close-delete-<?php echo $row['id']; ?>" class="button-back close-delete">No, mantener</button>
+                  <button id="close-delete-<?php echo $property->id; ?>" class="button-back close-delete">No, mantener</button>
                   <form method="POST" class="w-100">
-                    <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
+                    <input type="hidden" name="id" value="<?php echo $property->id; ?>">
                     <input type="submit" value="Si, eliminar" class="button-red w-100">
                   </form>
                 </div>
               </div>
-              <div id="open-delete-<?php echo $row['id']; ?>" class="button-red open-delete">Eliminar</div>
-              <a class="button-yellow-block" href="/admin/properties/update.php?id=<?php echo $row['id']; ?>">Actualizar</a>
+              <div id="open-delete-<?php echo $property->id; ?>" class="button-red open-delete">Eliminar</div>
+              <a class="button-yellow-block" href="/admin/properties/update.php?id=<?php echo $property->id; ?>">Actualizar</a>
             </td>
           </tr>
-        <?php endwhile; ?>
+        <?php endforeach; ?>
       </tbody>
     </table>
   </div>
 </main>
 <?php
-mysqli_close($db);
 includeTemplate('footer');
 ?>
