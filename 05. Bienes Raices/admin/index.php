@@ -64,17 +64,17 @@ includeTemplate('header');
             <td><?php echo $row['title']; ?></td>
             <td><?php echo numberToCurrency($row['price']); ?></td>
             <td>
-              <div class="delete-confirmation">
+              <div id="delete-confirmation-<?php echo $row['id']; ?>" class="delete-confirmation">
                 <p>¿Seguro/a de eliminar la propiedad?</p>
                 <div>
-                  <button class="button-back close-delete">No, mantener</button>
+                  <button id="close-delete-<?php echo $row['id']; ?>" class="button-back close-delete">No, mantener</button>
                   <form method="POST" class="w-100">
                     <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
                     <input type="submit" value="Si, eliminar" class="button-red w-100">
                   </form>
                 </div>
               </div>
-              <div class="button-red open-delete">Eliminar</div>
+              <div id="open-delete-<?php echo $row['id']; ?>" class="button-red open-delete">Eliminar</div>
               <a class="button-yellow-block" href="/admin/properties/update.php?id=<?php echo $row['id']; ?>">Actualizar</a>
             </td>
           </tr>

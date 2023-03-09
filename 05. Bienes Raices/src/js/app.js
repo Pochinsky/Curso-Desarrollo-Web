@@ -5,18 +5,31 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // all event listeners
 const eventListeners = () => {
+  // to show or hidden mobile menu
   const mobileMenu = document.querySelector(".mobile-menu");
   mobileMenu.addEventListener("click", responsiveNavigation);
-  const deleteDiv = document.querySelector(".open-delete") ?? null;
-  if (deleteDiv)
-    deleteDiv.addEventListener("click", () =>
-      changeDisplay(".delete-confirmation", "block")
-    );
-  const keepButton = document.querySelector(".close-delete") ?? null;
-  if (keepButton)
-    keepButton.addEventListener("click", () =>
-      changeDisplay(".delete-confirmation", "none")
-    );
+  // to show delete property pop up
+  const deleteDivs = document.getElementsByClassName("open-delete") ?? null;
+  if (deleteDivs) {
+    for (let i = 0; i < deleteDivs.length; i++) {
+      let id = deleteDivs[i].id.split("-")[2];
+      deleteDivs[i].addEventListener(
+        "click",
+        () => changeDisplay(`#delete-confirmation-${id}`, "block"),
+        false
+      );
+    }
+  }
+  // to hidde delete property pop up
+  const keepButtons = document.getElementsByClassName("close-delete") ?? null;
+  if (keepButtons) {
+    for (let i = 0; i < keepButtons.length; i++) {
+      let id = keepButtons[i].id.split("-")[2];
+      keepButtons[i].addEventListener("click", () =>
+        changeDisplay(`#delete-confirmation-${id}`, "none")
+      );
+    }
+  }
 };
 // change display of selector
 const changeDisplay = (nameSelector, display) => {
