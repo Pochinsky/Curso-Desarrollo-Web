@@ -1,7 +1,10 @@
 <?php
+
 // constants
+
 define('TEMPLATE_URL', __DIR__ . '/templates');
 define('HELPERS_URL', __DIR__ . '/helpers.php');
+define('IMAGES_FOLDER', __DIR__ . '/../images/');
 
 // functions
 
@@ -15,10 +18,16 @@ function numberToCurrency($number): string
   return '$ ' . number_format(floatval($number), 0, ',', '.');
 }
 
-function isAuthenticated(): bool
+function isAuthenticated()
 {
   session_start();
-  $auth = $_SESSION['login'];
-  if ($auth) return true;
-  return false;
+  if (!$_SESSION['login']) header('Location: /');
+}
+
+function debug($var)
+{
+  echo '<pre>';
+  var_dump($var);
+  echo '</pre>';
+  exit;
 }
