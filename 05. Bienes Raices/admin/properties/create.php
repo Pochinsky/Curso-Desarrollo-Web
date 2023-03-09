@@ -1,79 +1,53 @@
 <?php
-// templates
+
 require '../../includes/app.php';
+
+use App\Property;
+use Intervention\Image\ImageManagerStatic as Image;
+
 // check that session exists
-$auth = isAuthenticated();
-if (!$auth) header('Location: /');
+isAuthenticated();
+
+// database
 $db = connectDatabase();
+
 // get sellers
 $query1 = 'SELECT * FROM seller';
 $result1 = mysqli_query($db, $query1);
-// error messages
-$errors = [
-  'title' => '',
-  'price' => '',
-  'image' => '',
-  'description' => '',
-  'rooms' => '',
-  'bathrooms' => '',
-  'parkings' => '',
-  'seller' => ''
-];
+
 // default values
 $title = '';
 $price = '';
-$image = $_FILES['image'];
 $description = '';
-$rooms = '';
-$bathrooms = '';
-$parkings = '';
-$created = date('Y/m/d');
-$seller = '';
-$existErrors = false;
+$room = '';
+$bathroom = '';
+$parking = '';
+$sellerId = '';
+$errors = Property::getErrors();
+$existErrors = Property::getExistErrors();
+
+// http POST
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-  // extract values
-  $title = mysqli_real_escape_string($db, $_POST['title']);
-  $price = mysqli_real_escape_string($db, $_POST['price']);
-  $description = mysqli_real_escape_string($db, $_POST['description']);
-  $rooms = mysqli_real_escape_string($db, $_POST['rooms']);
-  $bathrooms = mysqli_real_escape_string($db, $_POST['bathrooms']);
-  $parkings = mysqli_real_escape_string($db, $_POST['parkings']);
-  $seller = mysqli_real_escape_string($db, $_POST['seller']);
-  // define error messages
-  if (!$title) $errors['title'] = 'El título es obligatorio';
-  if (!$price) $errors['price'] = 'El precio es obligatorio';
-  if (!$image['name']) $errors['image'] = 'La imagen es obligatoria';
-  if (strlen($description) < 50)
-    $errors['description'] = 'La descripción es obligatoria y debe tener, al menos, 50 caracteres';
-  if (!$rooms) $errors['rooms'] = 'La cantidad de habitaciones es obligatoria';
-  if (!$bathrooms) $errors['bathrooms'] = 'La cantidad de baños es obligatoria';
-  if (!$parkings) $errors['parkings'] = 'La cantidad de estacionamientos es obligatoria';
-  if (!$seller) $errors['seller'] = 'El/la vendedor/a es obligatorio/a';
-  $megabytesLimit = 1000000;
-  if ($image['size'] > $megabytesLimit)
-    $errors['image'] = 'La imagen es muy pesada (Máximo 1 MB)';
-  // insert data
-  foreach ($errors as $error) {
-    if (!empty($error)) $existErrors = true;
+  $property = new Property($_POST);
+  // image handling
+  $nameImage = md5(uniqid(rand(), true)) . '.jpg';
+  if ($_FILES['image']['tmp_name']) {
+    $image = Image::make($_FILES['image']['tmp_name'])->fit(800, 600);
+    $property->setImage($nameImage);
   }
+  // validate
+  $errors = $property->validate();
+  $existErrors = Property::getExistErrors();
   if (!$existErrors) {
-    // save files
-    $folder = '../../images/';
-    if (!is_dir($folder)) mkdir($folder);
-    $nameImage = md5(uniqid(rand(), true)) . '.jpg';
-    move_uploaded_file($image['tmp_name'], $folder . $nameImage);
-    // insert data
-    $query2 = "
-      INSERT INTO property (
-        title, price, image, description, room, bathroom, parking, created, seller_id) 
-      VALUES (
-        '$title', '$price', '$nameImage', '$description', '$rooms', '$bathrooms', '$parkings', '$created', '$seller'
-      )";
-    $result2 = mysqli_query($db, $query2);
-    if ($result2)
+    if (!is_dir(IMAGES_FOLDER)) mkdir(IMAGES_FOLDER);
+    $image->save(IMAGES_FOLDER . $nameImage);
+    $result = $property->save();
+    if ($result)
       header("Location: /admin?result=1");
   }
 }
+
+// header
 includeTemplate('header');
 ?>
 <!-- main -->
@@ -114,33 +88,33 @@ includeTemplate('header');
     <!-- property info -->
     <fieldset>
       <legend>Información de la Propiedad</legend>
-      <label for="rooms">Habitaciones</label>
-      <input type="number" name="rooms" id="rooms" placeholder="Ej: 3" min="1" max="9" value="<?php echo $rooms; ?>">
-      <?php if (!empty($errors['rooms'])) : ?>
-        <div class="message error"><?php echo $errors['rooms']; ?></div>
+      <label for="room">Habitaciones</label>
+      <input type="number" name="room" id="room" placeholder="Ej: 3" min="1" max="9" value="<?php echo $room; ?>">
+      <?php if (!empty($errors['room'])) : ?>
+        <div class="message error"><?php echo $errors['room']; ?></div>
       <?php endif; ?>
-      <label for="bathrooms">Baños</label>
-      <input type="number" name="bathrooms" id="bathrooms" placeholder="Ej: 3" min="1" max="9" value="<?php echo $bathrooms; ?>">
-      <?php if (!empty($errors['bathrooms'])) : ?>
-        <div class="message error"><?php echo $errors['bathrooms']; ?></div>
+      <label for="bathroom">Baños</label>
+      <input type="number" name="bathroom" id="bathroom" placeholder="Ej: 3" min="1" max="9" value="<?php echo $bathroom; ?>">
+      <?php if (!empty($errors['bathroom'])) : ?>
+        <div class="message error"><?php echo $errors['bathroom']; ?></div>
       <?php endif; ?>
-      <label for="parkings">Estacionamientos</label>
-      <input type="number" name="parkings" id="parkings" placeholder="Ej: 3" min="1" max="9" value="<?php echo $parkings; ?>">
-      <?php if (!empty($errors['parkings'])) : ?>
-        <div class="message error"><?php echo $errors['parkings']; ?></div>
+      <label for="parking">Estacionamientos</label>
+      <input type="number" name="parking" id="parking" placeholder="Ej: 3" min="1" max="9" value="<?php echo $parking; ?>">
+      <?php if (!empty($errors['parking'])) : ?>
+        <div class="message error"><?php echo $errors['parking']; ?></div>
       <?php endif; ?>
     </fieldset>
     <!-- seller info -->
     <fieldset>
       <legend>Vendedor</legend>
-      <select name="seller" id="seller">
+      <select name="sellerId" id="sellerId">
         <option value="" disabled selected>-- Seleccione --</option>
         <?php while ($row = mysqli_fetch_assoc($result1)) : ?>
-          <option <?php echo $seller === $row['id'] ? 'selected' : ''; ?> value="<?php echo $row['id']; ?>"><?php echo $row['name'] . ' ' . $row['lastname']; ?></option>
+          <option <?php echo $sellerId === $row['id'] ? 'selected' : ''; ?> value="<?php echo $row['id']; ?>"><?php echo $row['name'] . ' ' . $row['lastname']; ?></option>
         <?php endwhile; ?>
       </select>
-      <?php if (!empty($errors['seller'])) : ?>
-        <div class="message error"><?php echo $errors['seller']; ?></div>
+      <?php if (!empty($errors['sellerId'])) : ?>
+        <div class="message error"><?php echo $errors['sellerId']; ?></div>
       <?php endif; ?>
     </fieldset>
     <div class="form-buttons">
