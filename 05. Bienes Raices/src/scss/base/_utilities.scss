@@ -10,6 +10,12 @@
   @include tablet {
     display: flex;
     justify-content: center;
+    .button-green:first-child {
+      margin-right: 1rem;
+    }
+    .button-green:last-child {
+      margin-left: 1rem;
+    }
   }
 }
 
