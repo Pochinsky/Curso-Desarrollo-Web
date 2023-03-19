@@ -1,35 +1,34 @@
 <?php
-$db = connectDatabase();
-$query = "SELECT id, title, description, price, image, room, bathroom, parking FROM property";
-if (isset($limit)) $query = $query . " LIMIT $limit";
-$result = mysqli_query($db, $query);
+use App\Property;
+
+if ($_SERVER['SCRIPT_NAME'] === '/advertisements.php') $properties = Property::all();
+else $properties = Property::get(3);
 ?>
 <div class="container-advertisements">
-  <?php while ($row = mysqli_fetch_assoc($result)) : ?>
+  <?php foreach($properties as $property) : ?>
     <!-- advertisement -->
     <div class="advertisement">
-      <img src="/images/<?php echo $row['image']; ?>" alt="anuncio" loading="lazy" />
+      <img src="/images/<?php echo $property->image; ?>" alt="anuncio" loading="lazy" />
       <div class="content-advertisement">
-        <h3><?php echo $row['title']; ?></h3>
-        <p><?php echo $row['description']; ?></p>
-        <p class="price"><?php echo numberToCurrency($row['price']); ?></p>
+        <h3><?php echo $property->title; ?></h3>
+        <p><?php echo $property->description; ?></p>
+        <p class="price"><?php echo numberToCurrency($property->price); ?></p>
         <ul class="icons-properties">
           <li>
             <img src="/build/img/icono_wc.svg" alt="icono wc" loading="lazy" class="icon-property" />
-            <p><?php echo $row['bathroom']; ?></p>
+            <p><?php echo $property->bathroom; ?></p>
           </li>
           <li>
             <img src="/build/img/icono_estacionamiento.svg" alt="icono estacionamiento" loading="lazy" class="icon-property" />
-            <p><?php echo $row['parking']; ?></p>
+            <p><?php echo $property->parking; ?></p>
           </li>
           <li>
             <img src="/build/img/icono_dormitorio.svg" alt="icono dormitorio" loading="lazy" class="icon-property" />
-            <p><?php echo $row['room']; ?></p>
+            <p><?php echo $property->room; ?></p>
           </li>
         </ul>
-        <a href="advertisement.php?id=<?php echo $row['id']; ?>" class="button-yellow-block">Ver propiedad</a>
+        <a href="advertisement.php?id=<?php echo $property->id; ?>" class="button-yellow-block">Ver propiedad</a>
       </div>
     </div>
-  <?php endwhile; ?>
+  <?php endforeach; ?>
 </div>
-<?php mysqli_close($db); ?>

@@ -41,10 +41,7 @@ includeTemplate('header', true);
 <!-- ads -->
 <section class="container section">
   <h2>Casas y Departamentos en Venta</h2>
-  <?php
-  $limit = 3;
-  include 'includes/templates/advertisements.php';
-  ?>
+  <?php include 'includes/templates/advertisements.php'; ?>
   <div class="center">
     <a href="advertisements.php" class="button-green">Ver todas</a>
   </div>
