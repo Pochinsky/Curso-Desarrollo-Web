@@ -52,11 +52,11 @@ includeTemplate('header');
     <p class="alert success"><?php echo sanitize($message); ?></p>
   <?php endif; ?>
   ?>
-  <h2>Propiedades</h2>
   <div class="center">
     <a href="/admin/properties/create.php" class="button-green">Agregar Propiedad</a>
     <a href="/admin/sellers/create.php" class="button-green">Agregar Vendedor/a</a>
   </div>
+  <h2>Propiedades</h2>
   <!-- properties table -->
   <div class="container container-table">
     <table class="properties">
