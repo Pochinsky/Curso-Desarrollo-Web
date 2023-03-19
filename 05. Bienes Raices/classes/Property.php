@@ -2,13 +2,12 @@
 
 namespace App;
 
-class Property
+class Property extends ActiveRecord
 {
-  // static attributes
-  protected static $db;
   protected static $columns = [
     'id', 'title', 'price', 'image', 'description', 'room', 'bathroom', 'parking', 'created', 'sellerId'
   ];
+  protected static $table = 'property';
   protected static $errors = [
     'title' => '',
     'price' => '',
@@ -19,9 +18,6 @@ class Property
     'parking' => '',
     'sellerId' => ''
   ];
-  protected static $existErrors = false;
-
-  // attributes
   public $id;
   public $title;
   public $price;
@@ -48,95 +44,6 @@ class Property
     $this->sellerId = $args['sellerId'] ?? '';
   }
 
-  // setters
-
-  public static function setDatabase($db)
-  {
-    self::$db = $db;
-  }
-
-  public function setImage($image)
-  {
-    if ($image) $this->image = $image;
-  }
-
-  // getters
-
-  public static function getErrors()
-  {
-    return self::$errors;
-  }
-
-  public static function getExistErrors()
-  {
-    return self::$existErrors;
-  }
-
-  // methods
-
-  protected function attributes(): array
-  {
-    $attrs = [];
-    foreach (self::$columns as $column)
-      if ($column !== 'id')
-        $attrs[$column] = $this->$column;
-    return $attrs;
-  }
-
-  protected function sanitizeAttributes(): array
-  {
-    $attrs = $this->attributes();
-    $sanitize = [];
-
-    foreach ($attrs as $key => $value)
-      $sanitize[$key] = self::$db->escape_string($value);
-    return $sanitize;
-  }
-
-  protected static function createObject($register)
-  {
-    $object = new self;
-    foreach ($register as $key => $value)
-      if (property_exists($object, $key))
-        $object->$key = $value;
-    return $object;
-  }
-
-  protected static function querySQL($query)
-  {
-    // get all registers as objects
-    $result = self::$db->query($query);
-    $array = [];
-    while ($register = $result->fetch_assoc()) {
-      $array[] = self::createObject($register);
-    }
-    // free memory
-    $result->free();
-    return $array;
-  }
-
-  public static function all()
-  {
-    $query = "SELECT id, title, price, image FROM property";
-    $result = self::querySQL($query);
-    return $result;
-  }
-
-  public function save()
-  {
-    // sanitize data
-    $attrs = $this->sanitizeAttributes();
-
-    // insert data
-    $query = "INSERT INTO property (";
-    $query .= join(', ', array_keys($attrs));
-    $query .= ") VALUES ('";
-    $query .= join("', '", array_values($attrs));
-    $query .= "')";
-    $result = self::$db->query($query);
-    return $result;
-  }
-
   public function validate(): array
   {
     // define error messages
@@ -150,10 +57,18 @@ class Property
     if (!$this->parking) self::$errors['parking'] = 'La cantidad de estacionamientos es obligatoria';
     if (!$this->sellerId) self::$errors['sellerId'] = 'El/la vendedor/a es obligatorio/a';
 
-    // insert data
+    // set errors
     foreach (self::$errors as $error) {
       if (!empty($error)) self::$existErrors = true;
     }
     return self::$errors;
+  }
+
+  public function setImage($image)
+  {
+    // delete prev image
+    if ($this->id) $this->deleteImage();
+    // set image
+    if ($image) $this->image = $image;
   }
 }
