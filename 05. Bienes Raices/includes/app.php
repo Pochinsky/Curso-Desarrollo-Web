@@ -6,8 +6,8 @@ require 'helpers.php';
 require 'config/database.php';
 require __DIR__ . '/../vendor/autoload.php';
 
-use App\Property;
+use App\ActiveRecord;
 
 // connect database
 
-Property::setDatabase(connectDatabase());
+ActiveRecord::setDatabase(connectDatabase());
