@@ -31,3 +31,35 @@ function debug($var)
   echo '</pre>';
   exit;
 }
+
+function sanitize($html): string
+{
+  $sanitized = htmlspecialchars($html);
+  return $sanitized;
+}
+
+function validateTypeContent($type)
+{
+  $types = ['property', 'seller'];
+  return in_array($type, $types);
+}
+
+function showNotificacion($code)
+{
+  $message = '';
+  switch ($code) {
+    case 1:
+      $message = 'Creado Correctamente';
+      break;
+    case 2:
+      $message = 'Actualizado Correctamente';
+      break;
+    case 3:
+      $message = 'Eliminado Correctamente';
+      break;
+    default:
+      $message = false;
+      break;
+  }
+  return $message;
+}
