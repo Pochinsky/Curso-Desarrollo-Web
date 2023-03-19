@@ -12,10 +12,12 @@ const eventListeners = () => {
   const deleteDivs = document.getElementsByClassName("open-delete") ?? null;
   if (deleteDivs) {
     for (let i = 0; i < deleteDivs.length; i++) {
-      let id = deleteDivs[i].id.split("-")[2];
+      let arr = deleteDivs[i].id.split("-");
+      let table = arr[2];
+      let id = arr[3];
       deleteDivs[i].addEventListener(
         "click",
-        () => changeDisplay(`#delete-confirmation-${id}`, "block"),
+        () => changeDisplay(`#delete-confirmation-${table}-${id}`, "block"),
         false
       );
     }
@@ -24,9 +26,11 @@ const eventListeners = () => {
   const keepButtons = document.getElementsByClassName("close-delete") ?? null;
   if (keepButtons) {
     for (let i = 0; i < keepButtons.length; i++) {
-      let id = keepButtons[i].id.split("-")[2];
+      let arr = keepButtons[i].id.split("-");
+      let table = arr[2];
+      let id = arr[3];
       keepButtons[i].addEventListener("click", () =>
-        changeDisplay(`#delete-confirmation-${id}`, "none")
+        changeDisplay(`#delete-confirmation-${table}-${id}`, "none")
       );
     }
   }
