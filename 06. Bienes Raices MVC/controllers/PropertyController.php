@@ -13,11 +13,14 @@ class PropertyController
   {
     // get all properties
     $properties = Property::all();
+    // get all sellers
+    $sellers = Seller::all();
     // conditional message handler
     $result = $_GET['result'] ?? null;
     $router->render('properties/admin', [
       'properties' => $properties,
-      'result' => $result
+      'result' => $result,
+      'sellers' => $sellers
     ]);
   }
 
@@ -83,7 +86,6 @@ class PropertyController
       if (!$existErrors) {
         if ($image) {
           if (!is_dir(IMAGES_FOLDER)) mkdir(IMAGES_FOLDER);
-          debug($image);
           $image->save(IMAGES_FOLDER . $nameImage);
         }
         $property->save();
@@ -97,7 +99,7 @@ class PropertyController
     ]);
   }
 
-  public static function delete(Router $router)
+  public static function delete()
   {
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       // get id
