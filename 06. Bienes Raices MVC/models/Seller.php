@@ -30,6 +30,7 @@ class Seller extends ActiveRecord
     // define error messages
     if (!$this->name) self::$errors['name'] = 'El nombre es obligatorio';
     if (!$this->lastname) self::$errors['lastname'] = 'El precio es obligatorio';
+    if (strlen($this->phone) > 12) self::$errors['phone'] = 'El número de teléfono es muy largo';
     if (!preg_match('/\+[0-9]{11}/',$this->phone)) self::$errors['phone'] = 'El formato de teléfono no es válido';
 
     // set errors
