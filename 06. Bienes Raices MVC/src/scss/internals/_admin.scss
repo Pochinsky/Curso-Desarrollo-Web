@@ -1,0 +1,98 @@
+.alert {
+  padding: 1.5rem;
+  text-align: center;
+  color: $white;
+  font-weight: $bold;
+  text-transform: uppercase;
+  margin: 1rem 0;
+  &.error {
+    background-color: $red;
+  }
+  &.success {
+    background-color: $green;
+  }
+}
+
+.message {
+  font-size: 1.6rem;
+  font-weight: $bold;
+  text-transform: uppercase;
+  margin: 1rem 0 2rem 0;
+  &.error {
+    color: $red;
+  }
+}
+
+.form-buttons {
+  display: flex;
+  flex-direction: column-reverse;
+  @include tablet {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+.button-back {
+  background-color: transparent;
+  color: $blue;
+  border: 2px solid $blue;
+  font-weight: $bold;
+  margin: 1rem 0;
+  display: block;
+  text-decoration: none;
+  padding: 0.5rem 2.5rem;
+  text-align: center;
+  text-transform: uppercase;
+  &:hover {
+    color: $second_blue;
+    border-color: $second_blue;
+    cursor: pointer;
+  }
+}
+
+.container-table {
+  overflow-x: auto;
+}
+
+table.properties {
+  margin-top: 4rem;
+  width: 100%;
+  border-spacing: 0;
+  border: 1px solid $gray;
+  thead {
+    background-color: $green;
+    th {
+      color: $white;
+      padding: 2rem;
+    }
+  }
+  td {
+    padding: 0 1rem;
+    text-align: center;
+  }
+  tr:nth-child(even) {
+    background-color: $ligth_gray;
+  }
+  .image-table {
+    width: 10rem;
+    margin: 0 auto;
+  }
+}
+
+.delete-confirmation {
+  display: none;
+  flex-direction: column;
+  border: 2px solid $gray;
+  margin: 1rem 0 0 0;
+  padding: 0 1rem;
+  div {
+    display: flex;
+    flex-direction: column;
+    @include tablet {
+      @include grid(2, 1rem);
+    }
+  }
+  .close-delete {
+    font-size: 1.3rem;
+  }
+}

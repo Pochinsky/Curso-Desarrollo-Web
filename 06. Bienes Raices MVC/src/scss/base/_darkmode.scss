@@ -1,0 +1,72 @@
+.darkmode {
+  background-color: darken($dark_gray, 10);
+  p,
+  a {
+    color: $white;
+  }
+  h1,
+  h2,
+  h3 {
+    color: $gray;
+  }
+  .advertisement {
+    background-color: $dark_gray;
+    border: 1px solid lighten($dark_gray, 10);
+  }
+  .price {
+    color: $green;
+  }
+  .icon-property {
+    filter: invert(8100%);
+  }
+  .text-aboutus {
+    blockquote {
+      color: $white;
+    }
+  }
+  .testimonials {
+    h2 {
+      color: $white;
+    }
+  }
+  .form {
+    label,
+    legend,
+    p {
+      color: $gray;
+    }
+    input:not([type="submit"]),
+    textarea,
+    select {
+      background-color: $dark_gray;
+      color: $white;
+      border: 2px solid lighten($dark_gray, 10);
+    }
+  }
+  // to admin pages
+  .message {
+    &.error {
+      color: $ligth_red;
+    }
+  }
+  .button-back {
+    color: $ligth_blue;
+    border: 2px solid $ligth_blue;
+    &:hover {
+      color: darken($ligth_blue, 10);
+      border: 2px solid darken($ligth_blue, 10);
+    }
+  }
+  table.properties {
+    border: 2px solid lighten($dark_gray, 10);
+    td {
+      color: $white;
+    }
+    tr:nth-child(even) {
+      background-color: $dark_gray;
+    }
+  }
+  .delete-confirmation {
+    border: 2px solid lighten($dark_gray, 10);
+  }
+}

@@ -1,0 +1,37 @@
+.no-webp .home {
+  background-image: url(../img/header.jpg);
+}
+
+.webp .home {
+  background-image: url(../img/header.webp);
+}
+
+.header {
+  background-color: $dark_gray;
+  padding: 1rem 0 3rem 0;
+  &.home {
+    background-position: center center;
+    background-size: cover;
+    @include tablet {
+      min-height: 62rem;
+    }
+    .content-header {
+      @include tablet {
+        min-height: 62rem;
+      }
+    }
+  }
+}
+
+.content-header {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  h1 {
+    text-align: left;
+    color: $white;
+    font-weight: $bold;
+    line-height: 2;
+    max-width: 60rem;
+  }
+}

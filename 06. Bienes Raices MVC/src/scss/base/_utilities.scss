@@ -1,0 +1,39 @@
+.section {
+  margin-top: calc($separation / 2);
+  margin-bottom: calc($separation / 2);
+}
+.content-center {
+  max-width: 80rem;
+}
+
+.center {
+  @include tablet {
+    display: flex;
+    justify-content: center;
+    .button-green:first-child {
+      margin-right: 1rem;
+    }
+    .button-green:last-child {
+      margin-left: 1rem;
+    }
+  }
+}
+
+.full-block {
+  display: block;
+  width: 100%;
+  @include tablet {
+    width: auto;
+  }
+}
+
+@include tablet {
+  .right-align {
+    display: flex;
+    justify-content: flex-end;
+  }
+}
+
+.w-100 {
+  width: 100%;
+}

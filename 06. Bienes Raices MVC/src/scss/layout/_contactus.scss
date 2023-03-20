@@ -1,0 +1,24 @@
+.no-webp .image-contactus {
+  background-image: url("../img/encuentra.jpg");
+}
+
+.webp .image-contactus {
+  background-image: url("../img/encuentra.webp");
+}
+.image-contactus {
+  background-position: center center;
+  background-repeat: cover;
+  padding: $separation 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  h2 {
+    font-size: 4rem;
+    font-weight: $hyper_bold;
+    color: $white;
+  }
+  p {
+    font-size: 2rem;
+    color: $white;
+  }
+}
