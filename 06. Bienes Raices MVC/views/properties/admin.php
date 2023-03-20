@@ -56,4 +56,42 @@
       </tbody>
     </table>
   </div>
+  <h2>Vendedores/as</h2>
+  <!-- sellers table -->
+  <div class="container container-table">
+    <table class="properties">
+      <!-- thead -->
+      <thead>
+        <tr>
+          <th>Nombre y Apellido</th>
+          <th>Celular</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <!-- tbody -->
+      <tbody>
+        <?php foreach ($sellers as $seller) : ?>
+          <tr>
+            <td><?php echo $seller->name . ' ' . $seller->lastname; ?></td>
+            <td><?php echo $seller->phone ? $seller->phone : '---'; ?></td>
+            <td>
+              <div id="delete-confirmation-seller-<?php echo $seller->id; ?>" class="delete-confirmation">
+                <p>¿Seguro/a de eliminar el/la vendedora/a?</p>
+                <div>
+                  <button id="close-delete-seller-<?php echo $seller->id; ?>" class="button-back close-delete">No, mantener</button>
+                  <form method="POST" class="w-100" action="sellers/delete">
+                    <input type="hidden" name="id" value="<?php echo $seller->id; ?>">
+                    <input type="hidden" name="type" value="seller">
+                    <input type="submit" value="Si, eliminar" class="button-red w-100">
+                  </form>
+                </div>
+              </div>
+              <div id="open-delete-seller-<?php echo $seller->id; ?>" class="button-red open-delete">Eliminar</div>
+              <a class="button-yellow-block" href="/sellers/update?id=<?php echo $seller->id; ?>">Actualizar</a>
+            </td>
+          </tr>
+        <?php endforeach; ?>
+      </tbody>
+    </table>
+  </div>
 </main>
