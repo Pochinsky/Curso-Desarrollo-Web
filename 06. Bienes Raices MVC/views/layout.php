@@ -29,12 +29,12 @@ if (!isset($home)) $home = false;
         <div class="right">
           <img src="/build/img/dark-mode.svg" alt="Icono dark mode" class="button-darkmode" />
           <nav class="navigation">
-            <a href="/aboutus.php">Nosotros</a>
-            <a href="/advertisements.php">Anuncios</a>
-            <a href="/blog.php">Blog</a>
-            <a href="/contact.php">Contacto</a>
+            <a href="/aboutus">Nosotros</a>
+            <a href="/properties">Anuncios</a>
+            <a href="/blog">Blog</a>
+            <a href="/contact">Contacto</a>
             <?php if ($auth) : ?>
-              <a href="/close-session.php">Cerrar Sesión</a>
+              <a href="/close-session">Cerrar Sesión</a>
             <?php endif; ?>
           </nav>
         </div>
@@ -49,10 +49,10 @@ if (!isset($home)) $home = false;
   <footer class="footer section">
     <div class="container container-footer">
       <nav class="navigation">
-        <a href="/aboutus.php">Nosotros</a>
-        <a href="/advertisements.php">Anuncios</a>
-        <a href="/blog.php">Blog</a>
-        <a href="/contact.php">Contacto</a>
+        <a href="/aboutus">Nosotros</a>
+        <a href="/properties">Anuncios</a>
+        <a href="/blog">Blog</a>
+        <a href="/contact">Contacto</a>
       </nav>
     </div>
     <p class="copyright">Creado por Tomás Guttman.</p>

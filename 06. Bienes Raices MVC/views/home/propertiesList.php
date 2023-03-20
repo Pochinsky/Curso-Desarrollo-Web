@@ -1,9 +1,3 @@
-<?php
-use App\Property;
-
-if ($_SERVER['SCRIPT_NAME'] === '/advertisements.php') $properties = Property::all();
-else $properties = Property::get(3);
-?>
 <div class="container-advertisements">
   <?php foreach($properties as $property) : ?>
     <!-- advertisement -->
@@ -27,7 +21,7 @@ else $properties = Property::get(3);
             <p><?php echo $property->room; ?></p>
           </li>
         </ul>
-        <a href="advertisement.php?id=<?php echo $property->id; ?>" class="button-yellow-block">Ver propiedad</a>
+        <a href="/property?id=<?php echo $property->id; ?>" class="button-yellow-block">Ver propiedad</a>
       </div>
     </div>
   <?php endforeach; ?>
