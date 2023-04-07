@@ -1,11 +1,7 @@
-# Sitio Freelancer (Freelancer Site)
+# Sitio Freelancer
 
-**to visit the site [click here!](https://freelanceonepage.netlify.app/)**
+**Visite el sitio web [clickeando aquí!](https://freelanceonepage.netlify.app/)**
 
-#### Spanish description
+## Descripción
 
-Este proyecto corresponde a un sitio web de freelancer de una sola pagina (sin redireccionamiento). En este proyecto se estudian los aspectos basicos de HTML y CSS.
-
-#### English description
-
-This project corresponds a web site of freelancer that only have one page (without redirect). In this project we study the basics aspects of HTML and CSS.
+Este proyecto corresponde a un sitio web de freelancer de una sola página (sin redireccionamiento). En este proyecto se estudian los aspectos básicos de HTML y CSS.

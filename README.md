@@ -1,17 +1,17 @@
-# Web Development Online Course
+# Curso online de desarrollo web
 
-## Descripcion (Description)
+## Descripción
 
-#### Spanish description
-
-Este repositorio alberga los proyectos realizados en el desarrollo del curso online de la plataforma Udemy "Desarrollo Web Completo con HTML5, CSS3, JS AJAX PHP y MySQL" realizado por Juan Pablo De La Torre Valdez.
-
-#### English description
-
-This repository contains the projects done on the completion of the online course by Udemy web platform: "Desarrollo Web Completo con HTML5, CSS3, JS AJAX PHP y MySQL" by Juan Pablo De La Torre Valdez.
+Este repositorio alberga los proyectos realizados en el curso online de la plataforma Udemy "Desarrollo Web Completo con HTML5, CSS3, JS AJAX PHP y MySQL" realizado por Juan Pablo De La Torre Valdez.
 
 ## Proyectos del Curso (Course's Projects)
 
-1. Sitio Freelancer (Freelancer Site)
-2. Tienda "Frontend Store" ("Frontend Store" Shop)
-3. Blog de Cafe (Coffee's Blog)
+1. Sitio Freelancer (Finalizado y publicado)
+2. Tienda "Frontend Store" (Finalizado y publicado)
+3. Blog de Cafe (Finalizado y publicado)
+4. Festival de Música (Finalizado y publicado)
+5. Bienes Raíces (Finalizado)
+6. Bienes Raíces MVC (Finalizado)
+7. App Salón (Por desarrollar)
+8. UpTask (Por desarrollar)
+9. DevWebCamp (Por desarrollar)
