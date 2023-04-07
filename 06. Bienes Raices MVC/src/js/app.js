@@ -34,7 +34,13 @@ const eventListeners = () => {
       );
     }
   }
+  // to show or hidden inputs in contact form
+  const contactType = document.querySelectorAll('input[name="contact-type"]');
+  contactType.forEach((input) =>
+    input.addEventListener("click", changeContactInputs)
+  );
 };
+
 // change display of selector
 const changeDisplay = (nameSelector, display) => {
   const element = document.querySelector(nameSelector);
@@ -79,4 +85,24 @@ const darkMode = () => {
       localStorage.setItem("darkmode", "true");
     }
   });
+};
+
+const changeContactInputs = (event) => {
+  const divContact = document.querySelector("#contact");
+  if (event.target.value === "contact-phone") {
+    divContact.innerHTML = `
+      <label for="phone">Número de Teléfono</label>
+      <input type="tel" name="phone" id="phone" placeholder="Ej: +56912345678" />
+      <p>¿Cuándo quiere ser contactado?</p>
+      <label for="date">Fecha</label>
+      <input type="date" name="date" id="date" />
+      <label for="time">Hora</label>
+      <input type="time" name="time" id="time" min="09:00" max="18:00" />
+    `;
+  } else {
+    divContact.innerHTML = `
+      <label for="email">Email</label>
+      <input type="email" name="email" id="email" placeholder="Ej: user@correo.com" />
+    `;
+  }
 };

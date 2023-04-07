@@ -6,6 +6,7 @@ use MVC\Router;
 use Controller\PropertyController;
 use Controller\SellerController;
 use Controller\HomeController;
+use Controller\LoginController;
 
 $router = new Router();
 
@@ -26,14 +27,17 @@ $router->post('/sellers/create', [SellerController::class, 'create']);
 $router->post('/sellers/update', [SellerController::class, 'update']);
 $router->post('/sellers/delete', [SellerController::class, 'delete']);
 // home routes
-$router->get('/',[HomeController::class, 'index']);
-$router->get('/aboutus',[HomeController::class, 'aboutus']);
-$router->get('/properties',[HomeController::class, 'properties']);
-$router->get('/property',[HomeController::class, 'property']);
-$router->get('/blog',[HomeController::class, 'blog']);
-$router->get('/entry',[HomeController::class, 'entry']);
-$router->get('/contact',[HomeController::class, 'contact']);
-$router->post('/contact',[HomeController::class, 'contact']);
-
+$router->get('/', [HomeController::class, 'index']);
+$router->get('/aboutus', [HomeController::class, 'aboutus']);
+$router->get('/properties', [HomeController::class, 'properties']);
+$router->get('/property', [HomeController::class, 'property']);
+$router->get('/blog', [HomeController::class, 'blog']);
+$router->get('/entry', [HomeController::class, 'entry']);
+$router->get('/contact', [HomeController::class, 'contact']);
+$router->post('/contact', [HomeController::class, 'contact']);
+// login
+$router->get('/login', [LoginController::class, 'login']);
+$router->get('/logout', [LoginController::class, 'logout']);
+$router->post('/login', [LoginController::class, 'login']);
 
 $router->checkRoutes();

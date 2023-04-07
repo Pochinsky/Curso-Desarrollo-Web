@@ -34,7 +34,7 @@ if (!isset($home)) $home = false;
             <a href="/blog">Blog</a>
             <a href="/contact">Contacto</a>
             <?php if ($auth) : ?>
-              <a href="/close-session">Cerrar Sesión</a>
+              <a href="/logout">Cerrar Sesión</a>
             <?php endif; ?>
           </nav>
         </div>
