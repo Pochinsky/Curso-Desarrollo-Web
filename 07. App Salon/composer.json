@@ -1,0 +1,19 @@
+{
+  "name": "pochinsky/appsalon",
+  "description": "PHP MVC project",
+  "type": "project",
+  "autoload": {
+    "psr-4": {
+      "MVC\\": "./",
+      "Controller\\": "./controllers",
+      "Model\\": "./models"
+    }
+  },
+  "authors": [
+    {
+      "name": "Tomas Guttman",
+      "email": "tomas.guttman@sansano.usm.cl"
+    }
+  ],
+  "require": {}
+}
