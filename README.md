@@ -12,6 +12,6 @@ Este repositorio alberga los proyectos realizados en el curso online de la plata
 4. Festival de Música (Finalizado y publicado)
 5. Bienes Raíces (Finalizado)
 6. Bienes Raíces MVC (Finalizado)
-7. App Salón (Por desarrollar)
+7. **App Salón (En desarrollo)**
 8. UpTask (Por desarrollar)
 9. DevWebCamp (Por desarrollar)
