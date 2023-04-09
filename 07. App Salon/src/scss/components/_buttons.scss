@@ -1,0 +1,8 @@
+@use "base/variables" as v;
+@use "base/mixins" as m;
+
+.button {
+  @include m.boton(v.$azul, v.$blanco);
+  margin: 2rem auto;
+  text-transform: uppercase;
+}

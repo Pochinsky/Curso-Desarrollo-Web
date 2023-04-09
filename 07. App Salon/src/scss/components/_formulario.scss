@@ -1,0 +1,30 @@
+@use "base/variables" as v;
+@use "base/mixins" as m;
+
+.formulario {
+  margin: 5rem auto;
+  width: 100%;
+}
+
+.campo {
+  display: flex;
+  margin-bottom: 2rem;
+  flex-direction: column;
+  justify-content: center;
+
+  @include m.tablet {
+    display: grid;
+    grid-template-columns: 0.2fr 0.8fr;
+    align-items: center;
+  }
+
+  input {
+    border: none;
+    outline: none;
+    padding: 1rem 2rem;
+    border-radius: 1rem;
+    &:focus {
+      border: 2px solid darken(v.$azul, 5);
+    }
+  }
+}
